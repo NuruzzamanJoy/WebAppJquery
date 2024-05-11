@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    input[type='submit'], button,[aria-label]{
+        cursor:pointer;
+    }
+    #spoiler{
+        display:none;
+    }
+</style>
+<h1>ToDo Items</h1>
+<div class="row">
+    <form action="javascript:void(0);" method="post">
+        <input type="text" id="add-name" placeholder="New To do" class="form-control mb-2" />
+        <input class="btn btn-primary" onclick="addItem()" type="submit" value="Add ToDo" />
+    </form>
+    <div id="spoiler">
+        <h3>Edit</h3>
+        <form class="myForm">
+            <input type="hidden" id="edit-id" class="form-control mb-2" />
+            <input type="checkbox" id="edit-isComplete" />&nbsp;<label>Complete?</label>
+            <input type="text" id="edit-name" class="form-control mb-2" />
+            <input type="submit" value="Edit" class="btn btn-success" />
+            &nbsp;&nbsp;<a onclick="closeInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+    <p id="counter"></p>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Is Complete</th>
+                <th>Name</th>
+                <th>Id</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="todos">
+        </tbody>
+    </table>
+</div>
+
